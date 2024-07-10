@@ -1,7 +1,10 @@
 import React from 'react'
 import Para from './Para';
-function ParaList({input}) {
-    console.log(input);
+import { useContext } from 'react';
+import { ParaContext } from './Context/ParaContext';
+function ParaList() {
+    const paraInput = useContext(ParaContext);
+    console.log("input",paraInput);
     const data = [{
         para:"1)Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop. Cupcake lemon drops bear claw gummies. Jelly bear claw gummi bears lollipop cotton candy gummi bears chocolate bar cake cookie. Cupcake muffin danish muffin cookie gummies. Jelly beans tiramisu pudding. Toffee soufflé chocolate cake pastry brownie. Oat cake halvah sweet roll cotton candy croissant lollipop. Macaroon tiramisu chocolate bar candy candy carrot cake jelly sweet. Gummies croissant macaroon dessert. Chocolate cake dragée pie."
     },
@@ -24,7 +27,7 @@ function ParaList({input}) {
   return (
     <>
     <div className='flex flex-col justify-center items-center gap-10'>
-        {data.splice(0 , input).map((elem)=><Para para={elem.para}></Para>)}
+        {data.splice(0 , paraInput.input).map((elem)=><Para para={elem.para}></Para>)}
     </div>
 
     </>

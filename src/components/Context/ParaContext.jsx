@@ -1,15 +1,17 @@
-import {createContext, React,useContext} from 'react'
+import {createContext, React,useContext, useState} from 'react'
 
-export const ParaContext = createContext(null);
+export  const ParaContext = createContext(null);
 
-export const ParaProvider = (props)=>{
+ const ParaProvider = (props)=>{
+const [input , setInput] = useState(0);
 
     return(
         <>
-            <ParaContext.Provider>
+            <ParaContext.Provider value={{input, setInput}}>
                 {props.children}
             </ParaContext.Provider>
         </>
     )
 
 }
+ export default ParaProvider;
